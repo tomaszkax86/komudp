@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="KomUDP" default="compile" basedir=".">
+	<description>
+		Prosty Komunikator UDP
+	</description>
+	
+	<property name="src" location="src" />
+	<property name="build" location="bin" />
+    <property name="jar" location="KomUDP.jar" />
+	
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${build}" />
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac includeantruntime="false" srcdir="${src}" destdir="${build}" />
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar jarfile="${jar}" basedir="${build}" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build}" />
+        <delete file="${jar}" />
+	</target>
+</project>
